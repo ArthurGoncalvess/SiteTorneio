@@ -1,13 +1,13 @@
 const formQuantidadeTimes = document.getElementById('formQuantidadeTimes');
-  const formNomes = document.getElementById('formNomes');
-  const resultadosTorneio = document.getElementById('resultadosTorneio');
-  const historicoPartidasSection = document.getElementById('historicoPartidas');
-  const tabela = document.getElementById('tabela');
-  const vencedorDiv = document.getElementById('vencedor');
-  const MAX_PARTICIPANTES = 20;
-  const historicoPartidas = [];
-  const botaoSalvarHistorico = document.getElementById('botaoSalvarHistorico');
-  const botaoCarregarHistorico = document.getElementById('botaoCarregarHistorico');
+const formNomes = document.getElementById('formNomes');
+const resultadosTorneio = document.getElementById('resultadosTorneio');
+const historicoPartidasSection = document.getElementById('historicoPartidas');
+const tabela = document.getElementById('tabela');
+const vencedorDiv = document.getElementById('vencedor');
+const participantes_max = 20;
+const historicoPartidas = [];
+const botaoSalvarHistorico = document.getElementById('botaoSalvarHistorico');
+const botaoCarregarHistorico = document.getElementById('botaoCarregarHistorico');
 
   botaoSalvarHistorico.addEventListener('click', salvarHistoricoPartidas);
   botaoCarregarHistorico.addEventListener('click', carregarHistoricoPartidas);
@@ -45,7 +45,7 @@ const formQuantidadeTimes = document.getElementById('formQuantidadeTimes');
     event.preventDefault();
     const quantidadeTimes = parseInt(document.getElementById('quantidadeTimes').value);
 
-    if (quantidadeTimes > 0 && quantidadeTimes <= MAX_PARTICIPANTES) {
+    if (quantidadeTimes > 0 && quantidadeTimes <= participantes_max) {
       // Mostra o formulário de nomes e esconde o formulário de quantidade de times
       formQuantidadeTimes.classList.add('hidden');
       formNomes.classList.remove('hidden');
@@ -68,7 +68,7 @@ const formQuantidadeTimes = document.getElementById('formQuantidadeTimes');
       if (quantidadeTimes <= 0) {
         alert('Por favor, insira um número válido de times.');
       } else {
-        alert(`O número máximo de times participantes é ${MAX_PARTICIPANTES}.`);
+        alert(`O número máximo de times participantes é ${participantes_max}.`);
       }
     }
   });
